@@ -1,21 +1,21 @@
 package main
 
-import (
-	"golang.org/x/tour/wc"
-	"strings"
-)
+import "fmt"
 
-func WordCount(input string) map[string]int {
-	wordCount := make(map[string]int)
-
-	for _, word := range strings.Fields(input) {
-		wordCount[word] += 1
+// fibonacci is a function that returns
+// a function that returns an int.
+func fibonacci() func() int {
+	former, latter := 0, 1
+	
+	return func() int {
+		former, latter = latter, former + latter
+		return former
 	}
-
-	return wordCount
 }
 
 func main() {
-	wc.Test(WordCount)
+	f := fibonacci()
+	for i := 0; i < 10; i++ {
+		fmt.Println(f())
+	}
 }
-
