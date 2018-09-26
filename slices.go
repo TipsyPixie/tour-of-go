@@ -11,8 +11,8 @@ func Pic(dx, dy int) [][]uint8 {
 	for row := 0; row < len(table); row++ {
 		table[row] = make([]uint8, dx)
 		for column := 0; column < len(table[row]); column++ {
-			squareSum := math.Pow(float64(row), 2) + math.Pow(float64(column - 128), 2)
-			table[row][column] = 255 - uint8(math.Sqrt(squareSum))
+			pythagorasSum := math.Pow(float64(row), 2) + math.Pow(float64(column - 128), 2)
+			table[row][column] = 255 - uint8(math.Sqrt(pythagorasSum))
 		}
 	}
 
